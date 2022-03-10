@@ -5,10 +5,11 @@ import ImageList from './ImageList'
 import ImageCard from './ImageCard'
 
 
-export default () => {
+export default ( { handleClick } ) => {
   const [images, setImages] = useState([]);
 
   const onSubmit = async (term) => {
+    handleClick()
     const response = await unsplash.get('/search/photos', {
       params: { query: term }
     });
